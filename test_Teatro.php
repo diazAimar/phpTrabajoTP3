@@ -129,7 +129,7 @@
                 if($tipoFuncion == "teatro" || $tipoFuncion == "musical" || $tipoFuncion == "cine") {
                     $exito = true;
                 }
-            } while($tipoFuncion == "" && !$exito);
+            } while(!($exito));
             do{
                 if($i==0){
                     $esHorarioDisponible = true;
@@ -300,6 +300,10 @@
         }
     }
 
+    /**
+     *  funcion que calcula los costos totales para cada tipo de funcion y los imprime por pantalla 
+     *  @param object $objTeatro
+     *  */ 
     function darCostos($objTeatro){
         $costoTeatro = 0;
         $costoCine = 0;
