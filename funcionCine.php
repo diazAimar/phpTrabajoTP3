@@ -23,6 +23,12 @@
             $this -> paisDeOrigen = $paisOrig;
         }
 
+        public function darCosto(){
+            $precio = parent::darCosto();
+            $precioCine = $precio * 1.65;
+            return $precioCine;
+        }
+
         public function __toString(){
             return parent::__toString() .
             "Genero: " . $this -> getGenero() . "\n" .

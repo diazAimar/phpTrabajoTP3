@@ -82,13 +82,13 @@
                 break;
             case 7:
                 darCostos($objTeatro);
+                break;
             case 8: 
                 echo "Saliendo del programa.\n";
                 break;
         }
     } while ($opcion < 10);
-
-        
+    
     /**
     * revisa si la string ingresada por el usuario es un formato de hora correcto, retornando la string cuando es correcta
     * @return string
@@ -306,7 +306,7 @@
         $costoMusical = 0;
         for($i=0; $i<count($objTeatro -> getFuncionesTeatro()); $i++){
             $funcionActual = $objTeatro -> getFuncionesTeatro()[$i];
-            $getPrecioActual = $objTeatro -> getFuncionesTeatro()[$i] -> getPrecio();
+            $getPrecioActual = $funcionActual -> darCosto();
             if(is_a($funcionActual, "Funcion_Teatro")){
                 $costoTeatro = $costoTeatro + $getPrecioActual;
             } else if(is_a($funcionActual, "Funcion_Cine")) {
@@ -315,11 +315,8 @@
                 $costoMusical = $costoMusical + $getPrecioActual;
             }
         }
-        $costoTeatroFinal = $costoTeatro  * 1.45;
-        $costoCineFinal = $costoCine  * 1.65;
-        $costoMusicalFinal = $costoMusical * 1.12;
-        echo "\nCostos: \nCosto de alquiler de las funciones de teatro: $" . $costoTeatroFinal .
-        ".\nCosto de alquiler de las peliculas: $" . $costoCineFinal .
-        ".\nCosto de alquier de los musicales: $" . $costoMusicalFinal . 
-        ".\nCosto total de alquiler del teatro: " . ($costoTeatroFinal+$costoCineFinal+$costoMusical);
+        echo "\nCostos: \nCosto de alquiler de las funciones de teatro: $" . $costoTeatro .
+        ".\nCosto de alquiler de las peliculas: $" . $costoCine .
+        ".\nCosto de alquier de los musicales: $" . $costoMusical . 
+        ".\nCosto total de alquiler del teatro: " . ($costoTeatro+$costoCine+$costoMusical) . "\n";
     }

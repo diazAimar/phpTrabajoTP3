@@ -23,6 +23,12 @@
             $this -> cantidadDePersonasEnEscena = $cantPersEscena;
         }
 
+        public function darCosto(){
+            $precio = parent::darCosto();
+            $precioMusical = $precio * 1.12;
+            return $precioMusical;
+        }
+
         public function __toString(){
             return parent::__toString() .
             "Director: " . $this -> getDirector() . "\n" .

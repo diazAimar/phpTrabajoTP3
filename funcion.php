@@ -52,6 +52,11 @@
             $this -> precio = $prec;
         }
 
+        /* darCosto */
+        public function darCosto(){
+            return $this -> getPrecio();
+        }
+
         /* __toString */
         public function __toString(){
             return "Nombre de la funcion: " . $this -> getNombre() . 
